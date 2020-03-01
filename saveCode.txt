@@ -1,0 +1,103 @@
+Sahils-MacBook-Pro-2:blockhacks SahilMehta$ truffle migrate development
+
+Compiling your contracts...
+===========================
+> Compiling ./contracts/ApprovalContract.sol
+> Artifacts written to /Users/SahilMehta/Desktop/blockhacks/build/contracts
+> Compiled successfully using:
+   - solc: 0.5.16+commit.9c3226ce.Emscripten.clang
+
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 0x6691b7
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x057de3c04d0e0e7813f34990013e4a67d0e88f980001bb89df7bde1b5c56b029
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x00c37C23EB4781f48B92306da78E75956C5a5064
+   > block number:        1
+   > block timestamp:     1582939876
+   > account:             0xD16d5B0FBC562B40F59B1aC59680B316eD310305
+   > balance:             99.9967165
+   > gas used:            164175
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0032835 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.0032835 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+TypeError: Cannot read property 'bytecode' of undefined
+    at Deployer._preFlightCheck (/usr/local/lib/node_modules/truffle/build/webpack:/packages/deployer/src/deployment.js:172:1)
+    at /usr/local/lib/node_modules/truffle/build/webpack:/packages/deployer/src/deployment.js:281:1
+    at /usr/local/lib/node_modules/truffle/build/webpack:/packages/deployer/src/deferredchain.js:20:1
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at Migration._deploy (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/migration.js:70:1)
+    at Migration._load (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/migration.js:57:1)
+    at Migration.run (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/migration.js:167:1)
+    at Object.runMigrations (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/index.js:148:1)
+    at Object.runFrom (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/index.js:110:1)
+    at Object.run (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/index.js:87:1)
+    at runMigrations (/usr/local/lib/node_modules/truffle/build/webpack:/packages/core/lib/commands/migrate.js:253:1)
+    at /usr/local/lib/node_modules/truffle/build/webpack:/packages/core/lib/commands/migrate.js:218:1
+Truffle v5.1.15 (core: 5.1.15)
+Node v12.13.0
+Sahils-MacBook-Pro-2:blockhacks SahilMehta$ truffle migrate development
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 0x6691b7
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'ApprovalContract'
+   ----------------------------
+   > transaction hash:    0x3c553813304cc6fdfa9ccbc604446e77e8dfe709bdb13c0df60f817f1c6e5625
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xef466046707aA9dc39228CC3Feb934D0c1607744
+   > block number:        3
+   > block timestamp:     1582939950
+   > account:             0xD16d5B0FBC562B40F59B1aC59680B316eD310305
+   > balance:             99.99057644
+   > gas used:            264662
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00529324 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00529324 ETH
+
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.00529324 ETH
