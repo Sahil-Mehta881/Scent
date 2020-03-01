@@ -38,6 +38,7 @@
     <form id="get-balance-form">
       <button type="submit" class="btn btn-primary">Get Balance</button>
       <div id="the-balance">Click Button to get the current contract balance.</div>
+      <div id="the-other-balance"></div>
     </form>
     <h2>Approver:</h2>
     <form id="approver-form">
@@ -84,6 +85,15 @@
     }
     */
 
+
+    /*
+
+    Info about web3.js:
+    toWei converts ether value wei
+    fromWei converts wei value to ether
+
+
+
     console.log(web3.currentProvider);
 
 
@@ -96,9 +106,9 @@
 
 
     */
-    
 
-    // web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));
+
+    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));
 
 
 
@@ -110,7 +120,7 @@
     // creates new smart contract
     var ApprovalContract = new web3.eth.Contract(abi, contractAddress);
 
-    console.log(ApprovalContract);
+    // console.log("hmm " + web3.eth.getBalance(approverAddress));
 
     // ensured that address is valid/correct
     $('#contract-form').submit(function() {
@@ -118,10 +128,12 @@
       var fromAddress = $('#fromAddress').val();
 
 
-
+      console.log(web3.utils.isAddress(fromAddress));
 
       var toAddress = $('#toAddress').val();
       var amount = $('#amount').val();
+
+      console.log(web3.utils.isAddress(toAddress));
 
       // isAddress returns true/false whether given address is valid
 
@@ -141,11 +153,11 @@
       }
 
       ApprovalContract.methods.deposit(toAddress).send({from: fromAddress, gas: 100000, value: web3.utils.toWei(amount,'ether')},
-        
+
 
 
         function(error, result) {
-          
+
           console.log(fromAddress);
 
           if (error) {
@@ -157,11 +169,20 @@
         })
     });
 
+    // console.log(web3.eth.getBalance.request(ApprovalContract.sender));
+
+
     // function to get balance
+
+
     $('#get-balance-form').submit(function() {
       event.preventDefault();
 
       // outputs balance to console and html
+
+
+
+
       web3.eth.getBalance(contractAddress,
         function(error, result) {
           if (error) {
@@ -169,9 +190,15 @@
           } else {
             console.log('balance:' + result);
             $('#the-balance').html('<b>Current Balance:</b> ' + web3.utils.fromWei(result));
+            $('#the-other-balance').html('<b>' + '</b>' + '<b>Other Current Balance:</b> ' + web3.utils.toWei(result));
+
           }
         });
+
     });
+
+
+
 
 
         $('#approve-form').submit(function() {
